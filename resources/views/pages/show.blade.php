@@ -20,7 +20,7 @@
                     </h4>
                 </div>
                 <div class="col-md-12 mb-4">
-                    <img src="{{ $post -> image }}" class="img-fluid"/>
+                    <img src="{{ $post -> image }}" class="img-fluid" alt=""/>
                 </div>
                 <div class="col-md-12 mb-4 text-start">
                     <h3>

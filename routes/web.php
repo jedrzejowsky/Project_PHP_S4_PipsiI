@@ -19,5 +19,5 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/authors', function () {
     return view('pages/authors');
 })->name('authors');
-// tworzy routy do wsztkich funkcji w kontrolerze
+// tworzy routy do wszystkich funkcji w kontrolerze
 Route::resource('posts',\App\Http\Controllers\PostController::class);
