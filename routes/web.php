@@ -16,8 +16,15 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index']);
 
+//define a route that will be executed when no other route matches the incoming request
+Route::fallback(function () {
+    return view('pages.fallback');
+});
+
 Route::get('/authors', function () {
     return view('pages/authors');
 })->name('authors');
 // tworzy routy do wszystkich funkcji w kontrolerze
 Route::resource('posts',\App\Http\Controllers\PostController::class);
+
+
