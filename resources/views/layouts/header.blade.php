@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{url('/images/logo.png')}}" height="50px" class="img-fluid"/>
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{url('/images/logo.png')}}" width="100" height="50" class="img-fluid" alt="Logo"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,6 +13,22 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('authors') }}">Authors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">
+                    <strong>Database Connected: </strong>
+                    <?php
+                    try {
+                        \DB::connection()->getPDO();
+                        echo \DB::connection()->getDatabaseName();
+                    } catch (\Exception $e) {
+                        echo 'None';
+                    }
+                    ?>
+                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">

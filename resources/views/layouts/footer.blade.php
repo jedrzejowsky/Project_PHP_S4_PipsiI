@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="col col-lg-2 m-1">
-                <a href="https://github.com" target="_blank" class="link-secondary text-decoration-none">
+                <a href="https://github.com/jedrzejowsky/Project_PHP_S4_PipsiI" target="_blank" class="link-secondary text-decoration-none">
                     <i class="bi bi-github" style="font-size: 30px"></i>
                 </a>
             </div>
