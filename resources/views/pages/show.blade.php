@@ -1,5 +1,7 @@
 @extends('layouts/index')
 
+@section('title', "GryOffline - $post->title")
+
 @section('content')
 
     <div class="row m-0 h-75 w-100 d-flex justify-content-center ">
