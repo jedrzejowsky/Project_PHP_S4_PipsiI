@@ -28,11 +28,11 @@
             </div>
             <div class="col-md-12 mb-4 text-start">
                 <h3>
-                    {!! $post->content !!}
+                    {!! $post->excerpt !!}
                 </h3>
             </div>
             <div class="d-grid gap-2 col-md-12 mx-auto">
-                <a href="posts/{{$post->id}}" class="btn btn-secondary btn-lg btn-block" role="button">
+                <a href=" {{route('posts/single', $post->slug) }}" class="btn btn-secondary btn-lg btn-block" role="button">
                     Read more...
                 </a>
             </div>
@@ -40,6 +40,9 @@
     </div>
 </div>
 @endforeach
+
+@include('partials/pagination', ['pagination' => $posts])
+
 @else
     <div class="p-5 h-75 w-100 d-flex justify-content-center">
         <h1>
