@@ -14,7 +14,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('home');
 
 //define a route that will be executed when no other route matches the incoming request
 Route::fallback(function () {
@@ -24,7 +24,9 @@ Route::fallback(function () {
 Route::get('/authors', function () {
     return view('pages/authors');
 })->name('authors');
+
 // tworzy routy do wszystkich funkcji w kontrolerze
-Route::resource('posts',\App\Http\Controllers\PostController::class);
+//Route::resource('posts',\App\Http\Controllers\PostController::class);
 
-
+//przechodzenie na strone postu
+Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single');

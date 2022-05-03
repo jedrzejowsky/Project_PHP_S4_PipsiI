@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
+        $posts = Post::orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->paginate(5);
 
         return view('pages/posts', compact('posts'));
     }
@@ -41,10 +41,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $post =  Post::find($id);
-        return view('pages.show')->with('post',$post);
+        $post =  Post::whereSlug($slug)->firstOrFail();
+
+        return view('pages/show', compact('post'));
+        //return view('pages.show')->with('post',$post);
     }
 
     /**

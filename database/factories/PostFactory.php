@@ -18,7 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'title'=> $this->faker->sentence(),
-            'content'=> $this->faker->paragraph(8),
+            'content'=> $this->faker->paragraph(20),
             'date'=> $this->faker->dateTimeBetween('-5 days',now(),null),
             'author'=> $this->faker->firstName,
             'image'=> $this->faker->imageUrl(750,422)
