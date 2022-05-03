@@ -3,3 +3,49 @@ body {
     font-family: 'Roboto', sans-serif;
     color: white;
 }
+
+.page-link {
+    position:relative;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    background-color:#6c757d;
+    border:1px solid #6c757d;
+    transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out}  @media (prefers-reduced-motion:reduce){.page-link{transition:none}}
+
+.page-link:hover {
+    z-index:2;
+    color:#fff;
+    background-color:#5c636a;
+    border-color:#565e64
+}
+
+.page-link:focus {
+    z-index:3;
+    color:#fff;
+    background-color:#5c636a;
+    border-color:#5c636a;
+    box-shadow:0 0 0 .25rem rgba(130,138,145,.5)
+}
+
+.page-item.active .page-link {
+    z-index:3;
+    color:#fff;
+    background-color:#565e64;
+    border-color:#565e64
+}
+
+.page-item.disabled .page-link {
+    color:#fff;
+    pointer-events:none;
+    background-color: #2a2b2f;
+    border-color: #2a2b2f
+}
+
+.page-item:first-child .page-link {
+    border-radius:.25rem;
+}
+
+.page-item:last-child .page-link {
+    border-radius:.25rem;
+}
