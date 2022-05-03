@@ -20,8 +20,8 @@ class PostFactory extends Factory
             'title'=> $this->faker->sentence(),
             'content'=> $this->faker->paragraph(8),
             'date'=> $this->faker->dateTimeBetween('-5 days',now(),null),
-            'author'=> 'admin',
-            'image'=> $this->faker->company()
+            'author'=> $this->faker->firstName,
+            'image'=> $this->faker->imageUrl(750,422)
         ];
     }
 }
