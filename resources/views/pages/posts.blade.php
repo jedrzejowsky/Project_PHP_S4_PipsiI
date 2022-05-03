@@ -3,6 +3,7 @@
 @section('title', 'GryOffline')
 
 @section('content')
+@if($posts->count() > 0)
 @foreach($posts as $post)
 
 <div class="row m-0 h-75 w-100 d-flex justify-content-center ">
@@ -39,4 +40,11 @@
     </div>
 </div>
 @endforeach
+@else
+    <div class="p-5 h-75 w-100 d-flex justify-content-center">
+        <h1>
+            No posts yet :(
+        </h1>
+    </div>
+@endif
 @endsection
