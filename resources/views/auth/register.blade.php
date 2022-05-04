@@ -2,10 +2,10 @@
 @section('title', 'Register')
 
 @section('content')
-<div class="wrapper">
-    <div class="rte">
+<div class="row m-0 h-75 w-100 d-flex justify-content-center " >
+    <div class="row text-center p-3 d-flex justify-content-center" >
         <h1>Register</h1>
-    </div>
+
 
     <form method="POST" action="{{route('register')}}">
         @csrf
@@ -24,5 +24,5 @@
         </div>
         <button class="button">Submit</button>
     </form>
-</div>
+</div> </div>
 @endsection

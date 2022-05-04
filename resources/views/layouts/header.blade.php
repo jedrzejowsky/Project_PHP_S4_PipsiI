@@ -13,7 +13,7 @@
                     <a aria-current="page" href="{{ route('home') }}" {!! request()->routeIs('home') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Home</a>
                 </li>
                 <li class="nav-item">
-                        <a aria-current="page" href="#" {!! request()->routeIs('link') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} }>Link</a>
+                        <a aria-current="page" href="#" {!! request()->routeIs('link') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} >Link</a>
                 </li>
                 <li class="nav-item">
                     <a aria-current="page" href="{{ route('authors') }}" {!! request()->routeIs('authors') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Authors</a>

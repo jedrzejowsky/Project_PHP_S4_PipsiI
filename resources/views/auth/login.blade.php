@@ -2,10 +2,11 @@
 @section('title', 'Login')
 
 @section('content')
-    <div class="wrapper">
-        <div class="rte">
+    <div class="row m-0 h-75 w-100 d-flex justify-content-center" >
+
+        <div class="row text-center p-3 d-flex justify-content-center" >
             <h1>Login</h1>
-        </div>
+
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -22,6 +23,6 @@
         <div class="rte mt">
             <p>Don't have an account? <a href="{{ route('register') }}">Register now.</a><br>Forgot
                 your password? <a href="#">Reset it here.</a></p>
-        </div>
+        </div></div>
     </div>
 @endsection
