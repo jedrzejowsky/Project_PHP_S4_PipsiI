@@ -1,5 +1,5 @@
 @extends('layouts/index')
-@section('title', 'Login')
+@section('title', 'Log in')
 
 @section('content')
     <section>

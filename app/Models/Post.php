@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $dates = ['date'];
+//    protected $dates = ['date'];
 
     public function setTitleAttribute($value)
     {
