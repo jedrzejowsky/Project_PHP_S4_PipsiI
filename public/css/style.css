@@ -70,3 +70,16 @@ body {
     text-align: center;
     color: #14af13;
 }
+
+.register-ico {
+    font-size: 25px;
+}
+
+.register-background {
+    background-color: transparent;
+    border-style: none;
+}
+
+.link-register, .link-register:hover {
+    text-decoration: none;
+}
