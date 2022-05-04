@@ -45,7 +45,7 @@
                             <li><a class="dropdown-item" href="#logout">Logout</a></li>
                         </ul>
                     @else
-                        <a aria-current="page" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Login</a>
+                        <a aria-current="page" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Log In</a>
                     @endauth
                 </li>
             </ul>

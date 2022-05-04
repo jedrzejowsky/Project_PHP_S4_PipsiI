@@ -18,7 +18,7 @@
                         {{ $post->author }}
                     </span>
                     <span class="ms-auto">
-                        {{ $post->date}}
+                        {{ $post->date }}
                     </span>
                 </h4>
             </div>
