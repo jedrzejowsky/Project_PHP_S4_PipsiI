@@ -1,7 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,16 @@ Route::get('/authors', function () {
 
 //przechodzenie na strone postu
 Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single');
+
+Auth::routes();
+
+//rejestracja
+Auth::routes(['register' => false]);
+Route::get('/account/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/account/register', [RegisterController::class, 'register']);
+Auth::routes(['login' => false]);
+//logowanie
+Route::get('/account/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/account/login', [LoginController::class, 'login']);
+Route::post('/account/login', [LoginController::class, 'login']);
+Route::post('/account/logout', [LoginController::class, 'logout'])->name('logout');

@@ -5,7 +5,6 @@
 @section('content')
 @if($posts->count() > 0)
 @foreach($posts as $post)
-
 <div class="row m-0 h-75 w-100 d-flex justify-content-center ">
     <div class="row text-center p-3 d-flex justify-content-center">
         <div class="col-md-6 mb-5">
@@ -19,7 +18,7 @@
                         {{ $post->author }}
                     </span>
                     <span class="ms-auto">
-                        {{ $post->date }}
+                        {{ $post->date}}
                     </span>
                 </h4>
             </div>

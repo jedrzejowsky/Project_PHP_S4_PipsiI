@@ -49,3 +49,24 @@ body {
 .page-item:last-child .page-link {
     border-radius:.25rem;
 }
+.message {
+    width: 700px;
+    max-width: 100%;
+    padding: 20px 30px;
+    background-color: #9ff29f;
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: all 0.2s;
+    -webkit-animation: fadeOut 0.5s forwards;
+    animation: fadeOut 0.5s forwards;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #14af13;
+}
