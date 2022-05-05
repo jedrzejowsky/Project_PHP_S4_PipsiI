@@ -18,9 +18,9 @@ use App\Http\Controllers\Auth\LoginController;
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 //define a route that will be executed when no other route matches the incoming request
-Route::fallback(function () {
-    return view('pages.fallback');
-});
+//Route::fallback(function () {
+//    return view('pages.fallback');
+//});
 
 Route::get('/authors', function () {
     return view('pages/authors');
@@ -32,7 +32,7 @@ Route::get('/authors', function () {
 //przechodzenie na strone postu
 Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single');
 
-Auth::routes();
+//Auth::routes();
 
 //rejestracja
 Auth::routes(['register' => false]);
@@ -42,5 +42,15 @@ Auth::routes(['login' => false]);
 //logowanie
 Route::get('/account/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/account/login', [LoginController::class, 'login']);
-Route::post('/account/login', [LoginController::class, 'login']);
+
 Route::post('/account/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', function(){
+    return redirect()->route('home');
+});
+//przekierowanie do homepage'a
+Route::get('/logout', function(){
+    return redirect()->route('home');
+});
+Route::get('/account/logout', function(){
+    return redirect()->route('home');
+});
