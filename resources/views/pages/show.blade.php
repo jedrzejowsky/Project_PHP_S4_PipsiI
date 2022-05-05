@@ -1,6 +1,6 @@
 @extends('layouts/index')
 
-@section('title', "GryOffline - $post->title")
+@section('title', "$post->title - GryOffline")
 
 @section('content')
 
@@ -17,7 +17,7 @@
                         {{ $post->author }}
                     </span>
                         <span class="ms-auto">
-                        {{ $post->date }}
+                        {{  date('d.m.Y', strtotime($post->date))  }}
                     </span>
                     </h4>
                 </div>

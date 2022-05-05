@@ -1,5 +1,5 @@
 @extends('layouts/index')
-@section('title', 'Register')
+@section('title', 'Register - GryOffline')
 
 @section('content')
 <section>
