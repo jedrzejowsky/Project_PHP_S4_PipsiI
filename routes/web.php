@@ -44,9 +44,7 @@ Route::get('/account/login', [LoginController::class, 'showLoginForm'])->name('l
 Route::post('/account/login', [LoginController::class, 'login']);
 
 Route::post('/account/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/logout', function(){
-    return redirect()->route('home');
-});
+
 //przekierowanie do homepage'a
 Route::get('/logout', function(){
     return redirect()->route('home');
