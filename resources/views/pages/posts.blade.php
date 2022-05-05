@@ -9,7 +9,9 @@
     <div class="row text-center p-3 d-flex justify-content-center">
         <div class="col-md-6 mb-5">
             <div class="col-md-12">
-                <h1>{{ $post->title }}</h1>
+                <a href=" {{route('posts/single', $post->slug) }}" class="link-title">
+                    <h1>{{ $post->title }}</h1>
+                </a>
             </div>
             <div class="col-md-12">
                 <h4>
@@ -18,12 +20,14 @@
                         {{ $post->author }}
                     </span>
                     <span class="ms-auto">
-                        {{ $post->date }}
+                        {{ date('d.m.Y', strtotime($post->date)) }}
                     </span>
                 </h4>
             </div>
             <div class="col-md-12 mb-4">
-                <img src="{{ $post -> image }}" class="img-fluid" alt=""/>
+                <a href=" {{route('posts/single', $post->slug) }}">
+                    <img src="{{ $post -> image }}" class="img-fluid" alt=""/>
+                </a>
             </div>
             <div class="col-md-12 mb-4 text-start">
                 <h3>
