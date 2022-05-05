@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use TheSeer\Tokenizer\Exception;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +40,20 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    //przekierowanie do strony głównej kiedy nie ma url'a/pojawia się error
+    public function render($request, Exception|Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            $e = new NotFoundHttpException($e->getMessage(), $e);
+        }
+        // You can add your own exception here
+        // so redirect to the home route
+        if ($e instanceof NotFoundHttpException) {
+            return redirect()->route('home');
+        }
+
+        return parent::render($request, $e);
     }
 }
