@@ -1,4 +1,8 @@
 <?php
+
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -32,7 +36,7 @@ Route::get('/authors', function () {
 //przechodzenie na strone postu
 Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts/single');
 
-//Auth::routes();
+Auth::routes(['verify' => true]);
 
 //rejestracja
 Auth::routes(['register' => false]);
@@ -44,6 +48,17 @@ Route::get('/account/login', [LoginController::class, 'showLoginForm'])->name('l
 Route::post('/account/login', [LoginController::class, 'login']);
 
 Route::post('/account/logout', [LoginController::class, 'logout'])->name('logout');
+
+//resetowanie hasła
+Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+//weryfikacja konta
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+Route::get('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 //przekierowanie do homepage'a
 Route::get('/logout', function(){

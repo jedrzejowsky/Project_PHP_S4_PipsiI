@@ -1,4 +1,3 @@
-<?php use App\Http\Controllers\Auth\LoginController;?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -39,7 +38,11 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+
+                            @if(Auth::user() && Auth::user()->email_verified_at == NULL)
+                            <li><a class="dropdown-item" href=" {{ route('verification.notice') }}">Verify Account</a></li>
+                            @endif
+
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#logout">Logout</a></li>
