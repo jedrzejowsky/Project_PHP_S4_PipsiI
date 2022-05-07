@@ -93,3 +93,7 @@ body {
     text-decoration: none;
     color: #b8b9c2;
 }
+
+.error-code {
+    font-size: 100px;
+}

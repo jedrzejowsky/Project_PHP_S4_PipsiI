@@ -42,18 +42,18 @@ class Handler extends ExceptionHandler
         });
     }
 
-    //przekierowanie do strony głównej kiedy nie ma url'a/pojawia się error
-    public function render($request, Exception|Throwable $e)
-    {
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
-        }
-        // You can add your own exception here
-        // so redirect to the home route
-        if ($e instanceof NotFoundHttpException) {
-            return redirect()->route('home');
-        }
-
-        return parent::render($request, $e);
-    }
+//    //przekierowanie do strony głównej kiedy nie ma url'a/pojawia się error
+//    public function render($request, Exception|Throwable $e)
+//    {
+//        if ($e instanceof ModelNotFoundException) {
+//            $e = new NotFoundHttpException($e->getMessage(), $e);
+//        }
+//        // You can add your own exception here
+//        // so redirect to the home route
+//        if ($e instanceof NotFoundHttpException) {
+//            return redirect()->route('home');
+//        }
+//
+//        return parent::render($request, $e);
+//    }
 }
