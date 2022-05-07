@@ -51,7 +51,7 @@ body {
 }
 .alert {
     width: 700px;
-    max-width: 100%;
+    max-width: 99%;
     padding: 20px 30px;
     background-color: #9ff29f;
     position: fixed;
