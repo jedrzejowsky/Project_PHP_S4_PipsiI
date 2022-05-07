@@ -1,16 +1,18 @@
 @if($errors->count())
-    <div class="message is-error">
+    <div class="row justify-content-center alert alert-error mb-0" role="alert" id="alert-disappear">
         @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
+        <p class="mb-0">{{ $error }}</p>
         @endforeach
     </div>
 @endif
 @if(session('message'))
-    <div class="message">{{ session('message') }}</div>
+    <div class="row justify-content-center alert alert-success mb-0" role="alert" id="alert-disappear">
+        <p class="mb-0">{{ session('message') }}</p>
+    </div>
 @endif
 @if(session('verified'))
-    <div class="message">Your email has been verified!</div>
+    <div class="row justify-content-center alert alert-success mb-0" role="alert" id="alert-disappear">Your email has been verified!</div>
 @endif
 @if(session('resent'))
-    <div class="message">Verification email has been sent!</div>
+    <div class="row justify-content-center alert alert-success mb-0" role="alert" id="alert-disappear">Verification email has been sent!</div>
 @endif
