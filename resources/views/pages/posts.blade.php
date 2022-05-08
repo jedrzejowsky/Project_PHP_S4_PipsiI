@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-12 mb-4">
                 <a href=" {{route('posts/single', $post->slug) }}">
-                    <img src="{{ $post -> image }}" class="img-fluid" alt=""/>
+                    <img src="{{ $post -> photo }}" class="img-fluid img-show" alt="Post image"/>
                 </a>
             </div>
             <div class="col-md-12 mb-4 text-start">
@@ -34,9 +34,15 @@
                     {!! $post->excerpt !!}
                 </h3>
             </div>
-            <div class="d-grid gap-2 col-md-12 mx-auto">
+            <div class="d-grid gap-2 col-md-12 mx-auto mb-4">
                 <a href=" {{route('posts/single', $post->slug) }}" class="btn btn-secondary btn-lg btn-block" role="button">
                     Read more...
+                </a>
+            </div>
+            <div class="d-grid gap-2 col-md-12 mx-auto">
+                <a href=" {{route('admin.post.edit', $post->id) }}" class="btn btn-primary btn-block ms-auto" role="button">
+                    <i class="bi bi-pencil-square"></i> Edit
+
                 </a>
             </div>
         </div>

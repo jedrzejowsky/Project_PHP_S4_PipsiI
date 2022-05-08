@@ -12,7 +12,7 @@
                     <a aria-current="page" href="{{ route('home') }}" {!! request()->routeIs('home') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Home</a>
                 </li>
                 <li class="nav-item">
-                        <a aria-current="page" href="#" {!! request()->routeIs('link') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} >Link</a>
+                        <a aria-current="page" href="{{ route('admin.post.create') }}" {!! request()->routeIs('admin.post.create') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} >Create post</a>
                 </li>
                 <li class="nav-item">
                     <a aria-current="page" href="{{ route('authors') }}" {!! request()->routeIs('authors') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Authors</a>
