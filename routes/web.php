@@ -67,3 +67,13 @@ Route::get('/logout', function(){
 Route::get('/account/logout', function(){
     return redirect()->route('home');
 });
+
+//tworzenie postów
+Route::get('/admin/post/create', [\App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.post.create');
+Route::post('/admin/post/create', [\App\Http\Controllers\Admin\PostController::class, 'store']);
+
+//edycja postów
+Route::get('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'edit'])->name('admin.post.edit');
+Route::put('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'update']);
+
+Route::delete('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.post.delete');
