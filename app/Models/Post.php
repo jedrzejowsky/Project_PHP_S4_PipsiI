@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'image', 'date', 'author'];
+    protected $fillable = [/*'user_id',*/'title', 'content', 'image', 'date', 'author'];
 //    protected $dates = ['date'];
 
     public function setTitleAttribute($value)
@@ -29,4 +29,8 @@ class Post extends Model
     {
         return Str::startsWith($this->image, 'http') ? $this->image : Storage::url($this->image);
     }
+   /* public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }*/
 }

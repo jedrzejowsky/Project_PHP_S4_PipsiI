@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('can:manage-posts');
+    }
 
     protected function validator($data)
     {
@@ -70,7 +75,7 @@ class PostController extends Controller
         else{
             $data = Arr::add($data,'author', 'Auth::user()->name');
         }
-
+      //  $data['user_id'] = $request->user()->id;
         $post = Post::create($data);
 
         session()->flash('message', 'Post created!');

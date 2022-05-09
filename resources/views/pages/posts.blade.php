@@ -17,7 +17,7 @@
                 <h4>
                     <span class="me-5">
                         <i class="bi bi-pencil"></i>
-                        {{ $post->author }}
+                        {{ $post->author}}
                     </span>
                     <span class="ms-auto">
                         {{ date('d.m.Y', strtotime($post->date)) }}
@@ -39,12 +39,14 @@
                     Read more...
                 </a>
             </div>
+            @can('manage-posts')
             <div class="d-grid gap-2 col-md-12 mx-auto">
                 <a href=" {{route('admin.post.edit', $post->id) }}" class="btn btn-primary btn-block ms-auto" role="button">
                     <i class="bi bi-pencil-square"></i> Edit
 
                 </a>
             </div>
+           @endcan
         </div>
     </div>
 </div>
