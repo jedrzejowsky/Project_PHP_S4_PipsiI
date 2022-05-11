@@ -9,6 +9,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -77,8 +78,10 @@ class PostController extends Controller
         }
 
         $data['user_id'] = $request->user()->id;
+
         $post = Post::create($data);
 
+        Log::channel('customLog')->info("Creating post $data->title");
         session()->flash('message', 'Post created!');
         return redirect(route('posts/single', $post->slug));
     }
@@ -121,7 +124,7 @@ class PostController extends Controller
         {
             Storage::delete($oldImage);
         }
-
+        Log::channel('customLog')->info("Updating post $id");
         session()->flash('message', 'Post updated!');
         return redirect(route('posts/single', $post->slug));
     }
@@ -135,10 +138,12 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
+        Log::channel('customLog')->info("Deleting post $id");
         $post->delete();
         Storage::delete($post->image);
 
         session()->flash('message', 'Post deleted!');
+
         return redirect('/');
     }
 }
