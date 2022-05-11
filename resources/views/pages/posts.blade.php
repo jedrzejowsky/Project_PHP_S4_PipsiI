@@ -17,7 +17,7 @@
                 <h4>
                     <span class="me-5">
                         <i class="bi bi-pencil"></i>
-                        {{ $post->author}}
+                        {{ $post->author->name}}
                     </span>
                     <span class="ms-auto">
                         {{ date('d.m.Y', strtotime($post->date)) }}

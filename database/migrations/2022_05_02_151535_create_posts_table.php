@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-        //    $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title')->unique();
             $table->string('slug');
             $table->text('content');
             $table->date('date');
-            $table->string('author', 100);
             $table->string('image');
             $table->timestamps();
         });
