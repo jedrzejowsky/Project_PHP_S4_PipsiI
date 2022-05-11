@@ -29,8 +29,9 @@ class Post extends Model
     {
         return Str::startsWith($this->image, 'http') ? $this->image : Storage::url($this->image);
     }
-   /* public function author()
+
+    public function author()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
-    }*/
+    }
 }
