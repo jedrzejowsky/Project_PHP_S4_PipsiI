@@ -12,7 +12,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'title', 'content', 'image', 'date'];
-//    protected $dates = ['date'];
+    protected $dates = ['date'];
 
     public function setTitleAttribute($value)
     {
@@ -33,5 +33,10 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

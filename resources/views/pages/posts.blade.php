@@ -5,9 +5,9 @@
 @section('content')
 @if($posts->count() > 0)
 @foreach($posts as $post)
-<div class="row m-0 h-75 w-100 d-flex justify-content-center ">
-    <div class="row text-center p-3 d-flex justify-content-center">
-        <div class="col-md-6 mb-5">
+<div class="m-0 h-75 w-100">
+    <div class="text-center p-3 d-flex justify-content-center">
+        <div class="col-xs-12 col-sm-9 col-lg-6 mb-5">
             <div class="col-md-12">
                 <a href=" {{route('posts/single', $post->slug) }}" class="link-title">
                     <h1>{{ $post->title }}</h1>

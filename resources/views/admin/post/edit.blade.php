@@ -36,9 +36,9 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 mb-lg-4">
-                            <button class="button btn btn-primary btn-md">Update</button>
-                        </div>
+                        <button class="button btn btn-primary btn-md">
+                            <i class="bi bi-pencil-fill"></i> Update
+                        </button>
 
                     </form>
 
@@ -51,12 +51,10 @@
                             <p class="h1 fw-bold mt-4">Delete post</p>
                         </div>
 
-                        <div class="mb-3 mb-lg-4">
-                            <button class="button btn btn-danger btn-md" onclick="return confirm('Are you sure?')">
-                                <i class="bi bi-trash"></i>
-                                Delete
-                            </button>
-                        </div>
+                        <button class="button btn btn-danger btn-md" onclick="return confirm('Are you sure?')">
+                            <i class="bi bi-trash"></i>
+                            Delete
+                        </button>
 
                     </form>
 

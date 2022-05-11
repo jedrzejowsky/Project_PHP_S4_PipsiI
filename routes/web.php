@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\PostCommentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -71,9 +72,11 @@ Route::get('/account/logout', function(){
 //tworzenie postów
 Route::get('/admin/post/create', [\App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.post.create');
 Route::post('/admin/post/create', [\App\Http\Controllers\Admin\PostController::class, 'store']);
-
 //edycja postów
 Route::get('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'edit'])->name('admin.post.edit');
 Route::put('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'update']);
-
+//usuwanie postów
 Route::delete('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.post.delete');
+
+//tworzenie komentarza
+Route::post('/post/{post:slug}/comments', [PostCommentsController::class, 'store']);
