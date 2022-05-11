@@ -39,7 +39,7 @@
                     Read more...
                 </a>
             </div>
-            @can('manage-posts')
+            @can('edit-post', $post)
             <div class="d-grid gap-2 col-md-12 mx-auto">
                 <a href=" {{route('admin.post.edit', $post->id) }}" class="btn btn-primary btn-block ms-auto" role="button">
                     <i class="bi bi-pencil-square"></i> Edit
