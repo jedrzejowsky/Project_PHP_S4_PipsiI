@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -26,7 +27,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('manage-posts', function($user){
-           return $user->isAdmin();
+           return $user->canCreatePosts();
+        });
+
+        Gate::define('edit-post', function ($user, Post $post){
+            return $user->canEdit($post);
         });
     }
 }

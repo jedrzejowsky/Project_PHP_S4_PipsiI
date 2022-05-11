@@ -75,7 +75,8 @@ class PostController extends Controller
         else{
             $data = Arr::add($data,'author', 'Auth::user()->name');
         }
-      //  $data['user_id'] = $request->user()->id;
+
+        $data['user_id'] = $request->user()->id;
         $post = Post::create($data);
 
         session()->flash('message', 'Post created!');

@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -41,9 +42,26 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function isAdmin()
+    public function canCreatePosts()
     {
-        return $this->id === 1;
+        if($this->role_id === 1 || $this->role_id === 2){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function canEdit(Post $post)
+    {
+        if($this->role_id === 1){
+            return true;
+        }
+        if($this->role_id === 2 && $this->id === $post->user_id){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public function posts(){
         return $this->hasMany(Post::class);

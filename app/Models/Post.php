@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [/*'user_id',*/'title', 'content', 'image', 'date', 'author'];
+    protected $fillable = ['user_id', 'title', 'content', 'image', 'date'];
 //    protected $dates = ['date'];
 
     public function setTitleAttribute($value)
