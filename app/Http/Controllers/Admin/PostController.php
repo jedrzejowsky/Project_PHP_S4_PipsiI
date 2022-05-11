@@ -81,7 +81,7 @@ class PostController extends Controller
 
         $post = Post::create($data);
 
-        Log::channel('customLog')->info("Creating post $data->title");
+//        Log::channel('customLog')->info("Creating post $data->title");
         session()->flash('message', 'Post created!');
         return redirect(route('posts/single', $post->slug));
     }

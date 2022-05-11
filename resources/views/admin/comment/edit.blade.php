@@ -19,7 +19,7 @@
 
                         <div class="d-flex flex-row align-items-center mb-4 col-lg-6">
                             <div class="form-outline flex-fill mb-0">
-                                <input class="form-control" type="text" name="title"  placeholder="Title" value="{{ $comment->author->name }}" readonly="readonly"/>
+                                <input class="form-control" type="text" name="name"  placeholder="name" value="{{ $comment->author->name }}" readonly="readonly"/>
                             </div>
                         </div>
 

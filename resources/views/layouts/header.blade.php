@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black w-100">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{url('/images/logo.png')}}" width="100" height="50" class="img-fluid" alt="Logo"/>
@@ -12,25 +12,12 @@
                     <a aria-current="page" href="{{ route('home') }}" {!! request()->routeIs('home') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Home</a>
                 </li>
                 <li class="nav-item">
-                    @can('manage-posts')
-                        <a aria-current="page" href="{{ route('admin.post.create') }}" {!! request()->routeIs('admin.post.create') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} >Create post</a>
-                    @endcan
+{{--                    @can('manage-posts')--}}
+{{--                        <a aria-current="page" href="{{ route('admin.post.create') }}" {!! request()->routeIs('admin.post.create') ? ' class="nav-link active" ' : ' class="nav-link" ' !!} >Create post</a>--}}
+{{--                    @endcan--}}
                 </li>
                 <li class="nav-item">
                     <a aria-current="page" href="{{ route('authors') }}" {!! request()->routeIs('authors') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Authors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">
-                    <strong>Database Connected: </strong>
-                    <?php
-                    try {
-                        \DB::connection()->getPDO();
-                        echo \DB::connection()->getDatabaseName();
-                    } catch (\Exception $e) {
-                        echo 'None';
-                    }
-                    ?>
-                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
@@ -45,12 +32,21 @@
                             <li><a class="dropdown-item" href=" {{ route('verification.notice') }}">Verify Account</a></li>
                             @endif
 
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
+
+                                @if(Auth::user()->role_id == 1)
+                                    <li><a class="dropdown-item" href="{{ route('admin.users') }}">Manage users</a></li>
+                                @endif
+                                @can('manage-posts')
+                                    <li><a class="dropdown-item" href="{{ route('admin.post.create') }}">Create post</a></li>
+                                @endcan
+                                @if(Auth::user()->role_id != 3)
+                                    <li><hr class="dropdown-divider"></li>
+                                @endif
                             <li><a class="dropdown-item" href="#logout">Logout</a></li>
                         </ul>
                     @else
-                        <a aria-current="page" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Log In</a>
+                        <a aria-current="page" style="border-bottom: 1px solid #577291;" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Log In</a>
+                        <a aria-current="page" href="{{ route('register') }}" {!! request()->routeIs('register') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Register</a>
                     @endauth
                 </li>
             </ul>
