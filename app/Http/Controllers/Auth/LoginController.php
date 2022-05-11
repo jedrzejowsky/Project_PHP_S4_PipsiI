@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 class LoginController extends Controller
@@ -48,10 +49,12 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+        Log::channel('customLog')->info("$user->name Login");
         session()->flash('message', "Hi {$user->name}, you've been logged in!");
     }
     protected function loggedOut(Request $request)
     {
+
         session()->flash('message', "You've been successfully logged out!");
     }
 }

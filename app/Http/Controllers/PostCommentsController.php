@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class PostCommentsController extends Controller
@@ -28,6 +29,8 @@ class PostCommentsController extends Controller
             'date' => now(),
             'content' => request('content')
         ]);
+      
+        Log::channel('customLog')->info("Add new comment in post id=$post->id");
 
         return back();
     }
