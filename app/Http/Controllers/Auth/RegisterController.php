@@ -66,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        Log::channel('customLog')->info("Register new user $data->name");
+       Log::channel('customLog')->info('Register new user ',['name' => $data['name']]);
 
         return User::create([
             'name' => $data['name'],
