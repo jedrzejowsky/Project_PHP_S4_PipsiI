@@ -13,6 +13,7 @@ class Post extends Model
 
     protected $fillable = ['user_id', 'title', 'content', 'image', 'date'];
     protected $dates = ['date'];
+    public $guarded = ['slug'];
 
     public function setTitleAttribute($value)
     {

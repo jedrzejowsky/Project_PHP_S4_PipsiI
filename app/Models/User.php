@@ -66,4 +66,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function posts(){
         return $this->hasMany(Post::class);
     }
+    public function canEditComment(Comment $comment)
+    {
+        if($this->role_id === 1){
+            return true;
+        }
+        if($this->id === $comment->user_id){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

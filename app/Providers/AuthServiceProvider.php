@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -32,6 +33,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('edit-post', function ($user, Post $post){
             return $user->canEdit($post);
+        });
+
+        Gate::define('edit-comment', function ($user, Comment $comment){
+            return $user->canEditComment($comment);
         });
     }
 }

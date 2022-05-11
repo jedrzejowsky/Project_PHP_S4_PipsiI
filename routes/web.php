@@ -78,5 +78,8 @@ Route::put('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::clas
 //usuwanie postów
 Route::delete('/admin/post/{id}', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.post.delete');
 
-//tworzenie komentarza
+//komentarze
 Route::post('/post/{post:slug}/comments', [PostCommentsController::class, 'store']);
+Route::delete('/post/{post:slug}/comments', [PostCommentsController::class, 'destroy'])->name('comment.delete');
+Route::get('/post/{post:slug}/comments', [PostCommentsController::class, 'edit'])->name('comment.edit');
+Route::put('/post/{post:slug}/comments', [PostCommentsController::class, 'update']);
