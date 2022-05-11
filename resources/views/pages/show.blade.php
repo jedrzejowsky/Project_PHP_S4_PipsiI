@@ -33,12 +33,13 @@
                 {{--tworzenie komentarzy--}}
                 <section class="text-start mt-5">
                     @if(Auth::check() != null)
+                        @can('can-comment')
                     <form method="POST" action="/post/{{ $post->slug }}/comments">
                         @csrf
 
                         <div class="comment p-2">
                             <p class="mb-3">
-                                <img class="img-avatar me-2" src="https://i.pravatar.cc/150?u={{ auth()->id() }}"/>
+                                <img class="img-avatar me-2" src="https://robohash.org/{{ Auth::user()->id }}.png?set=set3"/>
                                 Want to participate?
                             </p>
 
@@ -52,29 +53,8 @@
                             </button>
                         </div>
                     </form>
+                        @endcan
                     @endif
-                    {{--wyświetlenie wszystkich komentarzy--}}
-{{--                    @if($post->comments->count() > 0)--}}
-{{--                        <p class="h2 fw-bold mt-5 mb-3">{{ $post->comments->count() }} {{ $post->comments->count() > 1 ? 'Comments' : 'Comment'}}</p>--}}
-{{--                        @foreach($post->comments as $comment)--}}
-
-{{--                            <div class="flex-grow-1 flex-shrink-1 comment mb-3 p-2">--}}
-{{--                                <div>--}}
-{{--                                    <div class="d-flex justify-content-between align-items-center">--}}
-{{--                                        <p class="mb-1">--}}
-{{--                                            <img class="img-avatar" src="https://i.pravatar.cc/150?u={{ $comment->user_id }}"/>--}}
-{{--                                            {{ $comment->author->name }} <span class="small">- {{ date('d.m.Y', strtotime($comment->date)) }}</span>--}}
-{{--                                        </p>--}}
-{{--                                </div>--}}
-{{--                                    <p class="mb-1">--}}
-{{--                                        {{ $comment->content }}--}}
-{{--                                    </p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-{{--                        @endforeach--}}
-{{--                    @endif--}}
-
                     @include('layouts/comments')
                 </section>
             </div>

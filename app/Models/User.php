@@ -24,6 +24,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'role_id'
     ];
 
+    protected $guarded =[];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -63,15 +65,31 @@ class User extends Authenticatable implements MustVerifyEmail
             return false;
         }
     }
+    public function role(){
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
     public function posts(){
         return $this->hasMany(Post::class);
     }
     public function canEditComment(Comment $comment)
     {
-        if($this->role_id === 1){
+        if($this->id === $comment->user_id){
             return true;
         }
-        if($this->id === $comment->user_id){
+        else{
+            return false;
+        }
+    }
+    public function isVerified(){
+        if($this->email_verified_at === NULL){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    public function isAdmin(){
+        if($this->role_id === 1){
             return true;
         }
         else{

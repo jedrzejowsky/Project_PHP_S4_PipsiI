@@ -115,3 +115,13 @@ body {
     border-bottom: 2px solid #364A6CFF;
     border-radius: 15px;
 }
+
+table {
+    display: block;
+    max-width: -moz-fit-content;
+    font-size: 20px;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}

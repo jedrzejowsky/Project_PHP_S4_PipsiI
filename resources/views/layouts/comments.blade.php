@@ -5,14 +5,14 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="mb-1">
-                    <img class="img-avatar" src="https://i.pravatar.cc/150?u={{ $comment->user_id }}"/>
+                    <img class="img-avatar" src="https://robohash.org/{{ $comment->user_id }}.png?set=set3"/>
                     {{ $comment->author->name }} <span class="small">- {{ date('d.m.Y', strtotime($comment->date)) }}</span>
                 </p>
                 @can('edit-comment', $comment)
 
                     <div class="d-flex justify-content-center ms-auto">
-                        <a href=" {{route('comment.edit', $comment->id) }}" class="btn btn-primary btn-block ms-auto btn-sm me-2" role="button">
-                            <i class="bi bi-pencil-square"></i> Edit
+                        <a href=" {{route('comment.edit', $comment->id) }}">
+                                <button class="button btn btn-primary btn-sm me-2"><i class="bi bi-pencil-square"></i> Edit</button>
                         </a>
                         <form method="POST" action="{{ route('comment.delete', $comment->id) }}">
                             @csrf

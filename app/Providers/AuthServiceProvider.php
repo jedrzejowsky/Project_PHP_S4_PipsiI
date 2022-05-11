@@ -38,5 +38,13 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('edit-comment', function ($user, Comment $comment){
             return $user->canEditComment($comment);
         });
+
+        Gate::define('can-comment', function ($user){
+            return $user->isVerified();
+        });
+
+        Gate::define('admin', function ($user) {
+            return $user->isAdmin();
+        });
     }
 }

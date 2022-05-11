@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
@@ -83,3 +84,13 @@ Route::post('/post/{post:slug}/comments', [PostCommentsController::class, 'store
 Route::delete('/post/{post:slug}/comments', [PostCommentsController::class, 'destroy'])->name('comment.delete');
 Route::get('/post/{post:slug}/comments', [PostCommentsController::class, 'edit'])->name('comment.edit');
 Route::put('/post/{post:slug}/comments', [PostCommentsController::class, 'update']);
+
+//użytkownicy
+Route::middleware('can:admin')->group(function() {
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
+});
+//Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
+Route::get('/admin/users/{id}', [UserController::class, 'show'])->name('admin.user');
+Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+Route::post('/admin/users/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
+Route::put('/admin/users/{id}', [UserController::class, 'update']);
