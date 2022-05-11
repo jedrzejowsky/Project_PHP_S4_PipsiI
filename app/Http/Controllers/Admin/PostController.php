@@ -61,13 +61,13 @@ class PostController extends Controller
             'image'=>'required|image|max:2048',
             'content'=>'required'
         ]);
-
+        //dd($data);
         if(isset($data['image']))
         {
             $path = $request->file('image')->store('images/photos');
             $data['image'] = $path;
         }
-
+       // dd($data);
         $data = Arr::add($data,'date', now());
 
         if(Auth::check() == null){
@@ -81,7 +81,8 @@ class PostController extends Controller
 
         $post = Post::create($data);
 
-//        Log::channel('customLog')->info("Creating post $data->title");
+        Log::channel('customLog')->info("Creating post",['title' =>$request->title]);
+
         session()->flash('message', 'Post created!');
         return redirect(route('posts/single', $post->slug));
     }
@@ -124,7 +125,7 @@ class PostController extends Controller
         {
             Storage::delete($oldImage);
         }
-        Log::channel('customLog')->info("Updating post $id");
+        Log::channel('customLog')->info('Updating post id='.$id);
         session()->flash('message', 'Post updated!');
         return redirect(route('posts/single', $post->slug));
     }
@@ -138,7 +139,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-        Log::channel('customLog')->info("Deleting post $id");
+        Log::channel('customLog')->info('Deleting post '.$id);
         $post->delete();
         Storage::delete($post->image);
 
