@@ -9,7 +9,7 @@
     <div class="text-center p-3 d-flex justify-content-center">
         <div class="col-xs-12 col-sm-9 col-lg-6 mb-5">
             <div class="col-md-12">
-                <a href=" {{'posts/single', $post->slug}}" class="link-title">
+                <a href=" {{route('posts/single', $post->slug)}}" class="link-title">
                     <h1>{{ $post->title }}</h1>
                 </a>
             </div>
