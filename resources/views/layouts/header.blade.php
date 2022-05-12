@@ -45,7 +45,7 @@
                             <li><a class="dropdown-item" href="#logout">Logout</a></li>
                         </ul>
                     @else
-                        <a aria-current="page" style="border-bottom: 1px solid #577291;" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Log In</a>
+                        <a aria-current="page" style="border-bottom: 1px solid #243447;" href="{{ route('login') }}" {!! request()->routeIs('login') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Log In</a>
                         <a aria-current="page" href="{{ route('register') }}" {!! request()->routeIs('register') ? ' class="nav-link active" ' : ' class="nav-link" ' !!}>Register</a>
                     @endauth
                 </li>
